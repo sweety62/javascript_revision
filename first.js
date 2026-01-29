@@ -15,4 +15,5 @@ const product ={
     offer:5,
     price:270,
 };
-console.log(product);
+//console.log(product);
+console.log(product.title);
