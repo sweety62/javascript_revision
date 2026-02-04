@@ -1,5 +1,5 @@
 let boxes = document.querySelectorAll(".box");
-let resetbtn  =document.querySelectorAll("#reset-btn");
+let resetbtn = document.querySelector("#reset-btn");
 
 let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
@@ -66,8 +66,8 @@ const enabledBoxes = () => {
 
 
 
-const showWinner = () => {
-    msg.innerText = `congratulations, Winner is ${Winner}`;
+const showWinner = (winner) => {
+    msg.innerText = `Congratulations, Winner is ${winner}`;
     msgContainer.classList.remove("hide");
     disabledBoxes();
 };
@@ -78,19 +78,30 @@ const showWinner = () => {
 
 
 const checkWinner = () => {
+    let winner = null;
     for (let pattern of Winpatterns) {
         let pos1val = boxes[pattern[0]].innerText;
         let pos2val = boxes[pattern[1]].innerText;
         let pos3val = boxes[pattern[2]].innerText;
 
-        if(pos1val !="" && pos2val != ""&& pos3val !==""){
-            if(pos1val === pos2val && pos2val === pos3val){
-                
-                showWinner(pos1val);
+        if (pos1val !== "" && pos1val === pos2val && pos2val === pos3val) {
+            winner = pos1val;
+            break;
         }
     }
-}
 
+    if (winner) {
+        showWinner(winner);
+        return;
+    }
+
+    // If all boxes are filled and no winner -> draw
+    const allFilled = Array.from(boxes).every((b) => b.innerText !== "");
+    if (allFilled) {
+        msg.innerText = "It's a draw!";
+        msgContainer.classList.remove("hide");
+        disabledBoxes();
+    }
 };
 
 newGameBtn.addEventListener("click", resetGame);
