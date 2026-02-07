@@ -1,28 +1,20 @@
-   //creating objects
-   const student = {
-    fullname:"sweety kumari",
-    age:20,
-    course:"computer science",
-    marks:94.4,
-    printmarks:function(){
-        console.log("marks=",this.marks);
-    },
-};
+//creating classes
 
+class ToyotaCar{
+    start(){
+        console.log("start");
+    }
 
-const employee = {
-    calTax(){
-        console.log("tax rate is 10%");
-    },
-};
+    stop(){
+        console.log("stop");
+    }
 
+    setBrand(brand){
+        this.brandName = brand;
+    }
+}
 
-const karanArjun = {
-    salary:500000,
-    calT(){
-        console.log("tax rate is 20%");
-    },
-
-};
-
-karanArjun.__proto__ = employee;//using prototype to access the method of employee in karanArjun object
+let fortuner = new ToyotaCar();
+fortuner.setBrand("Fortuner");
+let lexus = new ToyotaCar();
+lexus.setBrand("Lexus");
