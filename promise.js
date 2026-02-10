@@ -15,6 +15,33 @@ promise.catch((error) => {
     console.log("rejected",error);
 });*/
 
+/*function api(){
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            console.log("weather data");
+            resolve("200");
+        }, 2000);
+    });
+}
+
+async function getweather() {
+    await api();
+    console.log("Weather data fetched");
+    await api();
+    console.log("Weather data fetched");
+    await api();
+    console.log("Weather data fetched");
+    await api();
+    console.log("Weather data fetched");
+}*/
+
+
+
+
+
+
+
+
 function getData(DataId) {
     return new Promise((resolve,reject) => {
         setTimeout(() => {
@@ -25,8 +52,34 @@ function getData(DataId) {
     });
 }
 
+
+
+//async-await
+async function getalldata(){
+    console.log("getting data1...");
+    await getData(1);
+    console.log("getting data2...");
+    await getData(2);
+    console.log("getting data3...");
+    await getData(3);
+    console.log("getting data4...");
+    await getData(4);
+}
+
+//using IIFE
+(async function (){
+    console.log("getting data1...");
+    await getData(1);
+    console.log("getting data2...");
+    await getData(2);
+    console.log("getting data3...");
+    await getData(3);
+    console.log("getting data4...");
+    await getData(4);
+})();
+
 //promise chaining
-getData(1)
+/*getData(1)
 .then((res) => {
     return getData(2);
 })
