@@ -116,3 +116,24 @@ class Engineer extends person {
 
 let eng = new Engineer();
 
+
+
+//creating a websites for your colleges.create  a class user with two properties name and email
+
+let DATA = "secret information";
+class User {
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    viewData() {
+        console.log("data=", DATA);
+    }
+}
+
+let student1 = new User("sweety", "sweety@gmail.com");
+let student2 = new User("raja", "raja@gmail.com");
+
+student1.viewData();
+student2.viewData();
