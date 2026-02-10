@@ -131,9 +131,20 @@ class User {
         console.log("data=", DATA);
     }
 }
+class Admin extends User {
+    constructor(name, email) {
+        super(name, email);
+    }
+
+    editData() {
+        DATA = "Admin can edit data";
+    }
+}
 
 let student1 = new User("sweety", "sweety@gmail.com");
 let student2 = new User("raja", "raja@gmail.com");
+let admin = new Admin("admin", "admin@gmail.com");
 
 student1.viewData();
 student2.viewData();
+admin.editData();
