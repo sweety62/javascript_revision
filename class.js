@@ -148,3 +148,25 @@ let admin = new Admin("admin", "admin@gmail.com");
 student1.viewData();
 student2.viewData();
 admin.editData();
+
+
+//error handling
+let a = 10;
+let b = 5;
+console.log("a=", a);
+console.log("b=", b);
+
+console.log("a+b=", a+b);
+try{
+console.log("a+b=", a+c);
+}catch(error){
+    console.log("Error:", error.message);
+}
+console.log("a+b=", a+b);
+console.log("a+b=", a+b);
+console.log("a+b=", a+b);
+console.log("a+b=", a+b);
+
+
+
+
