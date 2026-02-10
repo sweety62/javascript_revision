@@ -66,7 +66,7 @@ child.hello();  // Output: Hello from Child
 
 //method overriding
 
-class person{
+/*class person{
     eat(){
         console.log("person is eating");
         
@@ -85,4 +85,34 @@ class Engineer extends person {
     }
 }
 
+let eng = new Engineer();*/
+
+//using super keyword
+class person{
+    constructor(name){
+        this.species = "Homo Sapiens";
+        this.name = name;
+    }
+    eat(){
+        console.log("person is eating");
+        
+    }
+    
+    
+     
+    
+}
+
+class Engineer extends person {
+
+    constructor(name){
+        super(name);//to invoke parent class constructor
+    }
+    work(){
+        super.eat();
+        console.log("Engineer is working");
+    }
+}
+
 let eng = new Engineer();
+
