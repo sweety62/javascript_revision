@@ -1,5 +1,5 @@
 
-const getpromise = () => {
+/*const getpromise = () => {
     return new Promise((resolve,reject) => {
         console.log("i am promise");
         resolve("success");
@@ -13,24 +13,38 @@ promise.then((res) => {
 });
 promise.catch((error) => {
     console.log("rejected",error);
-});
+});*/
 
-/*function getData(DataId,getNextData) {
+function getData(DataId) {
     return new Promise((resolve,reject) => {
         setTimeout(() => {
             console.log("data", DataId);
             resolve("success");
-            if(getNextData){
-                getNextData();
-            }
+            
         },2000);
     });
 }
 
+//promise chaining
+getData(1)
+.then((res) => {
+    return getData(2);
+})
+.then(res => {
+    return getData(3);
+})
+.then(res => {
+    return getData(4);
+})
+
+.then(res => {
+    console.log(res);
+})
+
 
 
 //callback hell
-getData(1, () => {
+/*getData(1, () => {
     getData(2, () => {
         getData(3, () => {
             getData(4, () => {
